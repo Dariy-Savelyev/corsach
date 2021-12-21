@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <title>Кредиты</title>
+    <link rel="stylesheet" type="text/css" href="/header.css">
+    <link rel="stylesheet" type="text/css" href="/style.css">
+</head>
+
+<body>
+<div class="wrapper">
+
+    <div class="header">
+        <div class="inner_header">
+            <ul class="navigation">
+                <a href="http://localhost:8080/credit"> <li class="button"> Кредиты </li> </a>
+                <a href="http://localhost:8080/main"> <li class="button"> Клиенты </li> </a>
+                <a href="http://localhost:8080/logout"> <li class="button"> Выход </li> </a>
+            </ul>
+        </div>
+    </div>
+
+
+
+    <div>
+
+        <form method="post" action="adddeposite" class="contact-form">
+            <div class="text">Добавить депозит</div>
+            <div class="text">-------------</div>
+            <div class="text">Клиент</div>
+            <select name="stationnamen">
+                <option class="input" name="stationnamen" value="Дарий Савельев">Дарий Савельев</option>
+                <option class="input" name="stationnamen" value="Павел Михалков">Павел Михалков</option>
+                <option class="input" name="stationnamen" value="Михаил Петров">Михаил Петров</option>
+            </select>
+
+            <div class="input_fields">
+                <input type="text" class="input" name="arrivaltimen" placeholder="Сумма депозита" required>
+                <input type="text" class="input" name="departuretimen" placeholder="Валюта" required>
+                <input type="text" class="input" name="typekn" placeholder="Тип депозита" required>
+                <input type="text" class="input" name="datakn" placeholder="Дата заключения депозита" required>
+                <input type="text" class="input" name="stavkan" placeholder="Ставка" required>
+                <input type="text" class="input" name="vrempogn" placeholder="Время возврата" required>
+            </div>
+            <button type="submit" class="button ">Добавить</button>
+        </form>
+    </div>
+    <form method="post" action="selectdepo" class="contact-form">
+        <div class="text">Фильтр клиентов</div>
+        <select name="stationnamen" >
+            <option class="input" name="stationnamen" value="all">Все</option>
+            <option class="input" name="stationnamen" value="Дарий Савельев">Дарий Савельев</option>
+            <option class="input" name="stationnamen" value="Павел Михалков">Павел Михалков</option>
+            <option class="input" name="stationnamen" value="Михаил Петров">Михаил Петров</option>
+        </select>
+        <button type="submit" class="button">Отобразить</button>
+    </form>
+
+    <div class="table">
+
+        <div>
+            <table>
+                <tr>
+                    <th>Клиент</th>
+                    <th>Сумма депозита</th>
+                    <th>Валюта</th>
+                    <th>Тип депозита</th>
+                    <th>Дата заключения депозита</th>
+                    <th>Ставка</th>
+                    <th>Время возврата</th>
+                </tr>
+                {{#deposit}}
+                    <tr>
+                        <input type="hidden"  name="id" value="{{entryidn}}">
+                        <td>{{stationnamen}}</td>
+                        <td>{{arrivaltimen}}</td>
+                        <td>{{departuretimen}}</td>
+                        <td>{{typekn}}</td>
+                        <td>{{datakn}}</td>
+                        <td>{{stavkan}}</td>
+                        <td>{{vrempogn}}</td>
+                        <td> <a href="http://localhost:8080/deletedeposite/{{entryidn}}"> <button class="button">Удалить</button> </a> </td>
+                    </tr>
+                {{/deposit}}
+            </table>
+        </div>
+    </div>
+
+</div>
+</body>
+</html>

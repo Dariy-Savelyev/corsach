@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <title>Tickets</title>
+    <link rel="stylesheet" type="text/css" href="/header.css">
+    <link rel="stylesheet" type="text/css" href="/style.css">
+</head>
+<body>
+
+<head>
+
+</head>
+
+<div class="wrapper">
+
+    <div class="header">
+        <div class="inner_header">
+            <ul class="navigation">
+                <a href="http://localhost:8080/logout"> <li class="button"> Out </li> </a>
+                <a href="http://localhost:8080/main"> <li class="button"> Staff </li> </a>
+                <a href="http://localhost:8080/timetable"> <li class="button"> Timetable </li> </a>
+            </ul>
+        </div>
+    </div>
+
+
+    <div class="table">
+        <table>
+            <tr>
+                <th>ticket type</th>
+                <th>ticket length</th>
+                <th>units sold</th>
+                <th>ticket price</th>
+                <th>date sold</th>
+            </tr>
+            {{#tickets}}
+                <tr>
+                    <input type="hidden"  name="id" value="{{ticketid}}">
+                    <td>{{tickettype}}</td>
+                    <td>{{ticketlength}}</td>
+                    <td>{{unitssold}}</td>
+                    <td>{{ticketprice}}</td>
+                    <td>{{datesold}}</td>
+                    <td> <a href="http://localhost:8080/tickets/sell/{{ticketid}}" > <button class="button">Sell</button> </a> </td>
+                </tr>
+            {{/tickets}}
+        </table>
+    </div>
+
+
+
+
+</div>
+</body>
+</html>

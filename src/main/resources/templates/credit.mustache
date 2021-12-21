@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <title>Кредиты</title>
+    <link rel="stylesheet" type="text/css" href="/header.css">
+    <link rel="stylesheet" type="text/css" href="/style.css">
+</head>
+
+<body>
+<div class="wrapper">
+
+    <div class="header">
+        <div class="inner_header">
+            <ul class="navigation">
+                <a href="http://localhost:8080/deposit"> <li class="button"> Депозиты </li> </a>
+                <a href="http://localhost:8080/main"> <li class="button"> Клиенты </li> </a>
+                <a href="http://localhost:8080/logout"> <li class="button"> Выход </li> </a>
+            </ul>
+        </div>
+    </div>
+
+
+
+<div>
+
+    <form method="post" action="addentry" class="contact-form">
+        <div class="text">Добавить кредит</div>
+        <div class="text">-------------</div>
+        <div class="text">Клиент</div>
+        <select name="stationname">
+                <option class="input" name="stationname" value="Дарий Савельев">Дарий Савельев</option>
+                <option class="input" name="stationname" value="Павел Михалков">Павел Михалков</option>
+                <option class="input" name="stationname" value="Михаил Петров">Михаил Петров</option>
+        </select>
+
+        <div class="input_fields">
+            <input type="text" class="input" name="arrivaltime" placeholder="Сумма кредита" required>
+            <input type="text" class="input" name="departuretime" placeholder="Валюта" required>
+            <input type="text" class="input" name="typek" placeholder="Тип кредита" required>
+            <input type="text" class="input" name="datak" placeholder="Дата заключения кредита" required>
+            <input type="text" class="input" name="stavka" placeholder="Ставка" required>
+            <input type="text" class="input" name="vrempog" placeholder="Время погашения" required>
+        </div>
+        <button type="submit" class="button ">Добавить</button>
+    </form>
+</div>
+    <form method="post" action="select" class="contact-form">
+        <div class="text">Фильтр клиентов</div>
+        <select name="stationname" >
+            <option class="input" name="stationname" value="all">Все</option>
+            <option class="input" name="stationname" value="Дарий Савельев">Дарий Савельев</option>
+            <option class="input" name="stationname" value="Павел Михалков">Павел Михалков</option>
+            <option class="input" name="stationname" value="Михаил Петров">Михаил Петров</option>
+        </select>
+        <button type="submit" class="button">Отобразить</button>
+    </form>
+
+<div class="table">
+
+    <div>
+        <table>
+            <tr>
+                <th>Клиент</th>
+                <th>Сумма кредита</th>
+                <th>Валюта</th>
+                <th>Тип кредита</th>
+                <th>Дата заключения кредита</th>
+                <th>Ставка</th>
+                <th>Время погашения</th>
+
+            </tr>
+            {{#credit}}
+                <tr>
+                    <input type="hidden"  name="id" value="{{entryid}}">
+                    <td>{{stationname}}</td>
+                    <td>{{arrivaltime}}</td>
+                    <td>{{departuretime}}</td>
+                    <td>{{typek}}</td>
+                    <td>{{datak}}</td>
+                    <td>{{stavka}}</td>
+                    <td>{{vrempog}}</td>
+                    <td> <a href="http://localhost:8080/deletetimetable/{{entryid}}"> <button class="button">Удалить</button> </a> </td>
+                </tr>
+            {{/credit}}
+        </table>
+    </div>
+</div>
+
+</div>
+</body>
+</html>

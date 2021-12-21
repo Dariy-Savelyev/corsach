@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <title>Клиенты</title>
+    <link rel="stylesheet" type="text/css" href="/header.css">
+    <link rel="stylesheet" type="text/css" href="/style.css">
+</head>
+<body>
+
+<head>
+
+</head>
+
+<div class="wrapper">
+
+    <div class="header">
+        <div class="inner_header">
+        <ul class="navigation">
+            <a href="http://localhost:8080/deposit"> <li class="button"> Депозиты </li> </a>
+            <a href="http://localhost:8080/credit"> <li class="button"> Кредиты </li> </a>
+            <a href="http://localhost:8080/logout"> <li class="button"> Выход </li> </a>
+        </ul>
+        </div>
+    </div>
+
+    <div>
+    <form method="post" action="add" class="contact-form">
+        <div class="text">Добавить клиента</div>
+        <div class="input_fields">
+            <input type="text" class="input" name="fname" placeholder="Имя" required>
+            <input type="text" class="input" name="lname" placeholder="Фамилия" required>
+            <input type="text" class="input" name="otch" placeholder="Отчество" required>
+            <input type="text" class="input" name="bdate" placeholder="Дата рождения" required>
+            <input type="text" class="input" name="dres" placeholder="Адрес проживания" required>
+            <input type="text" class="input" name="phone_n" placeholder="Телефон" required>
+            <input type="text" class="input" name="serp" placeholder="Серия паспорта" required>
+            <input type="text" class="input" name="norp" placeholder="Номер паспорта" required>
+            <input type="text" class="input" name="dstvt" placeholder="Действителен до" required>
+            <input type="text" class="input" name="graj" placeholder="Гражданство" required>
+
+        </div>
+        <button type="submit" class="button ">Ок</button>
+    </form>
+    </div>
+
+    <div>
+        <form method="post" action="filter" class="filter">
+            <div class="text">Поиск клиентов</div>
+            <div class="input_fields">
+                <input type="text" class="input" name="lname" placeholder="Фамилия" >
+            </div>
+            <button type="submit" class="button">Ок</button>
+        </form>
+    </div>
+
+<div class="table">
+
+
+
+    <div>
+        <table>
+            <tr>
+                <th>№</th>
+                <th>Имя</th>
+                <th>Фамилия</th>
+                <th>Отчество</th>
+                <th>Дата рождения</th>
+                <th>Адрес проживания</th>
+                <th>Телефон</th>
+                <th>Серия паспорта</th>
+                <th>Номер паспорта</th>
+                <th>Действителен до</th>
+                <th>Гражданство</th>
+            </tr>
+    {{#staff}}
+            <tr>
+                <td>{{id}}</td>
+                <td>{{first_name}}</td>
+                <td>{{last_name}}</td>
+                <td>{{otchestvo}}</td>
+                <td>{{birthdate}}</td>
+                <td>{{adres}}</td>
+                <td>{{phonenumber}}</td>
+                <td>{{seriyap}}</td>
+                <td>{{nomerp}}</td>
+                <td>{{deistvit}}</td>
+                <td>{{grajd}}</td>
+
+
+                <td> <a href="http://localhost:8080/showupdatestaff/{{id}}" > <button class="button">Изменить</button> </a> </td>
+                <td> <a href="http://localhost:8080/deletestaff/{{id}}" > <button class="button">Удалить</button> </a> </td>
+            </tr>
+    {{/staff}}
+        </table>
+
+    </div>
+
+</div>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Изменение данных</title>
+    <link rel="stylesheet" type="text/css" href="/header.css">
+    <link rel="stylesheet" type="text/css" href="/style.css">
+</head>
+<body>
+<div class="wrapper">
+    <div class="header">
+        <div class="inner_header">
+            <ul class="navigation">
+                <a href="http://localhost:8080/main"> <li class="button"> Клиенты </li> </a>
+                <a href="http://localhost:8080/deposit"> <li class="button"> Депозиты </li> </a>
+                <a href="http://localhost:8080/timetable"> <li class="button"> Кредиты </li> </a>
+            </ul>
+        </div>
+    </div>
+<div>
+
+    <form method="post" action="update" class="contact-form" {{#staff}}>
+        <div class="text">Изменить данные</div>
+        <div class="input_fields">
+            <input type="hidden"  name="id" value="{{id}}">
+            <input type="text" value="{{first_name}}" class="input" name="fname" placeholder="Имя" >
+            <input type="text" value="{{last_name}}" class="input" name="lname" placeholder="Фамилия" >
+            <input type="text" value="{{otchestvo}}" class="input" name="otch" placeholder="Отчество" >
+            <input type="text" value="{{birthdate}}" class="input" name="bdate" placeholder="Дата рождения" >
+            <input type="text" value="{{adres}}" class="input" name="dres" placeholder="Адрес проживания" >
+            <input type="text" value="{{phone_number}}" class="input" name="phone_n" placeholder="Телефон" >
+            <input type="text" value="{{seriyap}}" class="input" name="serp" placeholder="Серия паспорта" >
+            <input type="text" value="{{nomerp}}" class="input" name="norp" placeholder="Номер паспорта" >
+            <input type="text" value="{{deistvit}}" class="input" name="dstvt" placeholder="Действителен до" >
+            <input type="text" value="{{grajd}}" class="input" name="graj" placeholder="Гражданство" >
+        </div>
+        <button type="submit" class="button">Изменить</button>
+    <{{/staff}}/form>
+</div>
+</div>
+</body>
+</html>
